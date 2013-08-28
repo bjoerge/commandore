@@ -1,0 +1,24 @@
+{
+  "name": "commandore",
+  "version": "0.0.0",
+  "description": "Store commands for later execution",
+  "main": "commandore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjoerge/commandore"
+  },
+  "keywords": [
+    "command",
+    "store",
+    "sessionStorage",
+    "localStorage"
+  ],
+  "author": "Bjørge Næss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bjoerge/commandore/issues"
+  }
+}
