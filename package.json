@@ -1,6 +1,6 @@
 {
   "name": "commandore",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Store commands for later execution",
   "main": "commandore.js",
   "scripts": {
