@@ -5,8 +5,18 @@ var DEBUG = (typeof process !== 'undefined' && process.env && process.env.NODE_E
 
 var KEY = "__commandore_stored_commands";
 
-function debug() {
-  if (DEBUG) console.log.apply(console, arguments);
+var debug;
+if (!DEBUG || typeof console === 'undefined' || typeof console.log === 'undefined') {
+  debug = Function.prototype
+}
+else if (typeof console.log === 'object') {
+  // WTF ie8
+  debug = console.log
+}
+else {
+  debug = function debug() {
+    console.log.apply(console, arguments)
+  }
 }
 
 function popPrevSessionId() {
