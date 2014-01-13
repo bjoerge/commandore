@@ -26,7 +26,13 @@ function popPrevSessionId() {
 }
 function newSessionId() {
   var id = String((new Date().getTime()));
-  sessionStorage.setItem("__commandore_previous_session_id", id);
+  try {
+    // Safari on iOS may fail to save anything to sessionStorage in incognito mode
+    sessionStorage.setItem("__commandore_previous_session_id", id);
+  }
+  catch (e) {
+    console.error("Unable to write to local store. Are you in Safari@iOS in incognito mode?")
+  }
   return id;
 }
 
@@ -51,7 +57,12 @@ function setHandler(commandName, handler) {
 }
 
 function commit() {
-  sessionStorage.setItem(KEY,  JSON.stringify(DB))  
+  try {
+    sessionStorage.setItem(KEY,  JSON.stringify(DB))
+  }
+  catch (e) {
+    console.error("Unable to write to local store. Are you in Safari@iOS in incognito mode?")
+  }
 }
 
 function remove(name) {
